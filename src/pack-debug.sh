@@ -1,0 +1,1 @@
+dotnet pack SpreadSheetParser.csproj -p:NuspecFile=.nuspec -p:NuspecProperties=<> -p:NuspecBasePath=.nespec -c Debug -o ../packages

@@ -59,14 +59,15 @@ namespace SpreadSheetParser.Models
 
                     return true;
                 }
+                else
+                {
+                    throw new Exception($"The column {propertyName} is not of type {column.ColumnType.Name}");
+                }
             }
             catch (System.Exception)
             {
+                throw;
             }
-
-            property = null;
-
-            return false;
         }
 
         protected bool TryBuildObject<T>(T obj) where T : SheetObject
@@ -84,18 +85,33 @@ namespace SpreadSheetParser.Models
 
                     var type = p.PropertyType;
 
-                    object? value = Activator.CreateInstance(type);
+                    object? value = CreateInstanceInstance(type);
 
                     if (TryGetProperty(name, type, out value))
                         p.SetValue(obj, value);
+                    else
+                    {
+                        throw new Exception(string
+                            .Format("Could not find property {0} of type {1}", name, type.Name));
+                    }
                 }
 
                 return true;
             }
             catch (System.Exception)
             {
-                return false;
+                throw;
             }
+        }
+
+        private object? CreateInstanceInstance(Type type)
+        {
+            if (type == "".GetType())
+            {
+                return string.Empty;
+            }
+
+            return Activator.CreateInstance(type);
         }
     }
 }
