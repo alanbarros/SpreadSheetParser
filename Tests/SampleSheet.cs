@@ -3,7 +3,7 @@ using SpreadSheetParser.Models;
 
 namespace Tests
 {
-
+    [DisplayName("First Sheet")]
     public class SampleSheet : SheetObject
     {
         [DisplayName("First Column")]
