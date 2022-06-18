@@ -6,7 +6,6 @@
     <Version>0.0.1</Version>
     <Authors>Alan Barros</Authors>
     <Company>Alan</Company>
-    <Repository type="git" url="https://github.com/alanbarros/SpreadSheetParser" />
     <Description>
       SpreadSheetParser is a library to parse a spreadsheet file and return a list of objects.
     </Description>
