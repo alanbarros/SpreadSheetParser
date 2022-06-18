@@ -1,5 +1,6 @@
 using SpreadSheetParser.Models;
 using Xunit;
+using FluentAssertions;
 
 namespace Tests
 {
@@ -8,22 +9,15 @@ namespace Tests
         [Fact]
         public void ShouldParseSpreadSheet()
         {
+            // Given
             var builder = new SheetBuilder("Book.xlsx", "First Sheet");
 
-            // Sheet book = builder.Build();
-
-            // string serializedSheet = book.GetString();
-
-            // //List<SampleSheet> sampleObjects = book.TryParseList<SampleSheet>();
-
-            // Console.WriteLine(serializedSheet);
-
-
-            // Given
-
             // When
+            Sheet book = builder.Build();
+            List<SampleSheet> sampleObjects = book.TryParseList<SampleSheet>();
 
             // Then
+            sampleObjects.Count.Should().Be(40);
         }
     }
 }

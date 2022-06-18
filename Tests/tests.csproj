@@ -20,4 +20,8 @@
     <ProjectReference Include="..\src\SpreadSheetParser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>  
+    <None Update="Book.xlsx" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
