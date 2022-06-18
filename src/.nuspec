@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <!-- Required elements-->
+        <id>SpreadSheetParser</id>
+        <version>0.0.1</version>
+        <description>SpreadSheetParser is a library to parse a spreadsheet file and return a list of objects.</description>
+        <authors>Alan Barros</authors>
+        <repository type="git" url="https://github.com/alanbarros/SpreadSheetParser" branch="main" />
+        <!-- Optional elements -->
+        <!-- ... -->
+
+        <license type="expression">MIT</license>
+    </metadata>
+    <files>
+        <file src="..\LICENSE.txt" target="" />
+        <file src="..\README.md" target="" />
+    </files>
+</package>
