@@ -1,6 +1,4 @@
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
 
 namespace SpreadSheetParser.Models
 {
@@ -12,14 +10,9 @@ namespace SpreadSheetParser.Models
         public SheetFile(FileInfo file, string sheetName = null)
         {
             this.BookName = file.Name;
-            this.SheetName = sheetName ?? GetSheetName();
+            this.SheetName = sheetName ?? SheetReader.GetSheetName<TContent>();
             File = file;
         }
-
-        private string GetSheetName() => typeof(TContent).GetCustomAttributes(false)
-                        .Where(w => w.GetType()
-                        .Name.Contains("DisplayName"))
-                        .FirstOrDefault() is DisplayNameAttribute displayName ? displayName.DisplayName : typeof(TContent).Name;
 
         public FileInfo File { get; }
     }
