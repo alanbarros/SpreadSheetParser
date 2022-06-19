@@ -3,7 +3,7 @@
     <metadata>
         <!-- Required elements-->
         <id>SpreadSheetParser</id>
-        <version>0.0.5</version>
+        <version>0.0.6</version>
         <description>SpreadSheetParser is a library to parse a spreadsheet file and return a list of objects.</description>
         <authors>Alan Barros</authors>
         <repository type="git" url="https://github.com/alanbarros/SpreadSheetParser" branch="main" />

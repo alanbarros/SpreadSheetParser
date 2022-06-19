@@ -53,6 +53,12 @@ namespace SpreadSheetParser.Models
 
                 var column = row.GetColumns()[propertyIndex];
 
+                if (column.Value == null)
+                {
+                    property = CreateInstanceInstance(type);
+                    return true;
+                }
+
                 if (column.ColumnType == type)
                 {
                     property = column.Value;
