@@ -10,7 +10,8 @@ namespace Tests
         public void ShouldParseSpreadSheet()
         {
             // Given
-            var builder = new SheetBuilder("Book.xlsx", "First Sheet");
+            var file = new FileInfo("Book.xlsx");
+            var builder = new SheetBuilder(file, "First Sheet");
 
             // When
             Sheet book = builder.Build();

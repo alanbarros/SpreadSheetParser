@@ -6,20 +6,20 @@ namespace SpreadSheetParser.Models
 {
     public class SheetBuilder
     {
-        public string BookName { get; }
+        public FileInfo FileInfo { get; set; }
         public string SheetName { get; }
         private Sheet? sheet;
 
-        public SheetBuilder(string bookName, string sheetName)
+        public SheetBuilder(FileInfo fileInfo, string sheetName)
         {
             this.SheetName = sheetName;
-            this.BookName = bookName;
+            this.FileInfo = fileInfo;
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
         public Sheet Build()
         {
-            using var stream = File.Open(BookName, FileMode.Open, FileAccess.Read);
+            using var stream = File.Open(FileInfo.FullName, FileMode.Open, FileAccess.Read);
 
             using var reader = ExcelReaderFactory.CreateReader(stream);
 

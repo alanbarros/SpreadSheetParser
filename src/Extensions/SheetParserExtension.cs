@@ -5,10 +5,10 @@ namespace SpreadSheetParser.Extensions
 {
     public static class SheetParserExtension
     {
-        public static List<TContent> BuildSheet<TContent>(this SheetFile<TContent> file)
+        public static List<TContent> Parse<TContent>(this SheetFile<TContent> file)
             where TContent : SheetObject
         {
-            return new SheetBuilder(file.BookName, file.SheetName).Build().TryParseList<TContent>();
+            return new SheetBuilder(file.File, file.SheetName).Build().TryParseList<TContent>();
         }
     }
 }
