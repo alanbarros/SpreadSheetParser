@@ -8,7 +8,6 @@ namespace SpreadSheetParser.Models
         public Sheet(string name)
         {
             this.Name = name;
-
         }
 
         public string Name { get; set; }
