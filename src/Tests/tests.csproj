@@ -17,10 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\SpreadSheetParser.csproj" />
+    <ProjectReference Include="..\SpreadSheetParser\SpreadSheetParser.csproj" />
   </ItemGroup>
 
-  <ItemGroup>  
+  <ItemGroup>
     <None Update="Book.xlsx" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 

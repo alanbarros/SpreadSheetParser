@@ -20,5 +20,18 @@ namespace Tests
             // Then
             sampleObjects.Count.Should().Be(40);
         }
+
+        [Fact]
+        public void ShouldParseSheetPerson()
+        {
+            // Given
+            var file = new FileInfo("Book.xlsx");
+
+            // When
+            List<SheetPerson> people = SheetReader.ReadStream<SheetPerson>(file.OpenRead());
+
+            // Then
+            people.First().BirthDay.Should().Be(new DateTime(1996, 02, 29));
+        }
     }
 }

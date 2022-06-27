@@ -2,7 +2,7 @@
 
 #Example: sh pkg-helper.sh -l alanbarros -k $(cat ../key.txt) -v 0.0.7
 
-WORK_DIR=src
+WORK_DIR=src/SpreadSheetParser
 PATH_CSPROJ=$WORK_DIR/SpreadSheetParser.csproj
 PROJECT_NAME=$(xmlstarlet sel -t -v '//PackageId' $PATH_CSPROJ)
 VERSION=$(xmlstarlet sel -t -v '//Version' $PATH_CSPROJ)
