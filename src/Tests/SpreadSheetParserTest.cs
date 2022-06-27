@@ -31,7 +31,7 @@ namespace Tests
             List<SheetPerson> people = SheetReader.ReadStream<SheetPerson>(file.OpenRead());
 
             // Then
-            people.First().BirthDay.Should().Be(new DateTime(1996, 02, 29));
+            people.First().BirthDay.Should().Be(new DateTime(1763, 06, 13));
         }
     }
 }

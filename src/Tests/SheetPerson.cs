@@ -15,15 +15,16 @@ namespace Tests
         [DisplayName("Data Nascimento")]
         public DateTime BirthDay { get; set; }
 
+        [DisplayName("Patrimônio")]
+        public Double Property { get; set; }
 
-        [DisplayName("Altura")]
-        public Double Hight { get; set; }
+        [DisplayName("Moeda")]
+        public string Currency { get; set; }
 
         public SheetPerson(SheetHeader header, SheetRow row) : base(header, row)
         {
             if (TryBuildObject<SheetPerson>(this) is false)
                 throw new ArgumentException("Could not create a sample object");
         }
-
     }
 }
