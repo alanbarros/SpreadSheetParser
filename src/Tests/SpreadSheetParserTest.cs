@@ -30,8 +30,10 @@ namespace Tests
             // When
             List<SheetPerson> people = SheetReader.ReadStream<SheetPerson>(file.OpenRead());
 
-            // Then
-            people.First().BirthDay.Should().Be(new DateTime(1763, 06, 13));
+            // Then 
+            people.First().BirthDay
+                .Should()
+                .Be(new DateTime(1763, 06, 13));
         }
     }
 }

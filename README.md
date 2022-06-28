@@ -12,21 +12,29 @@ This package can help read and parse a SpreadSheet/Excel .xlsx file and return a
 2. Make a class to represent this sheet
 
 ````csharp
-    [DisplayName("First Sheet")]
-    public class SampleSheet : SheetObject
+    [DisplayName("Cadastro Pessoa")]
+    public class SheetPerson : SheetObject
     {
-        [DisplayName("First Column")]
-        public Double FirstColumn { get; set; }
+        [DisplayName("Nome Cliente")]
+        public string ClientName { get; set; }
 
-        [DisplayName("Second Column")]
-        public Double SecondColumn { get; set; }
+        [DisplayName("Número CPF/CNPJ")]
+        public string DocumentNumber { get; set; }
 
-        public SampleSheet(SheetHeader header, SheetRow row) : base(header, row)
+        [DisplayName("Data Nascimento")]
+        public DateTime BirthDay { get; set; }
+
+        [DisplayName("Patrimônio")]
+        public Double Property { get; set; }
+
+        [DisplayName("Moeda")]
+        public string Currency { get; set; }
+
+        public SheetPerson(SheetHeader header, SheetRow row) : base(header, row)
         {
-            if (TryBuildObject<SampleSheet>(this) is false)
+            if (TryBuildObject<SheetPerson>(this) is false)
                 throw new ArgumentException("Could not create a sample object");
         }
-
     }
 ````
 
@@ -43,11 +51,21 @@ The first row in the sheet is used as a Header, each column must always be a str
 
 ````csharp
 using SpreadSheetParser.Models;
-using SpreadSheetParser.Extensions;
 
-var sheet = new SheetFile<SampleSheet>(new FileInfo("Book.xlsx"));
+[Fact]
+public void ShouldParseSheetPerson()
+{
+    // Given
+    var file = new FileInfo("Book.xlsx");
 
-List<SampleSheet> sampleObjects = sheet.BuildSheet<SampleSheet>();
+    // When
+    List<SheetPerson> people = SheetReader.ReadStream<SheetPerson>(file.OpenRead());
+
+    // Then 
+    people.First().BirthDay
+        .Should()
+        .Be(new DateTime(1763, 06, 13));
+}
 ````
 
 5. The result should be like this:
